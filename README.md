@@ -1,5 +1,5 @@
 # PHP-Login
-A drop-in Login Area written in PHP.
+A drop-in Login Area entirely written in PHP. No Database needed.
 
 Features:
 - [X] **Stores Password as hashes**
