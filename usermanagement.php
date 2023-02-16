@@ -31,7 +31,7 @@ if(isset($config["debug"])){
                 <h2>Users</h2>";
             $login_data = include('login-data.php');
             foreach ($login_data as $key => $value) {
-                echo "<p class='user'>" . $key . "</p>";
+                echo "<a class='user' href='usermanagement.php?name=".$key."'>" . $key . "</a>";
             }
             echo "</div>";
         } else {
@@ -43,7 +43,7 @@ if(isset($config["debug"])){
             <h2>Change Password</h2>
             <?php
                 if($_SESSION["user"] == "root"){
-                    echo "<input type='text' name='update-user_name' placeholder='Username' required>";
+                    echo "<input type='text' name='update-user_name' value=\"".$_GET["name"]."\" placeholder='Username' required>";
                 }
             ?>
             <input type="password" name="update-user_cpw" placeholder="Current Password" required>
@@ -56,7 +56,7 @@ if(isset($config["debug"])){
     if($_SESSION["user"] == "root"){
         echo "<div><form method='post'>
             <h2>Add User</h2>
-            <input type='text' name='add-user_name' placeholder='Username' required>
+            <input type='text' name='add-user_name' value=\"".$_GET["name"]."\" placeholder='Username' required>
             <input type='password' name='add-user_pw' placeholder='New Password' required>
             <input type='password' name='add-user_pwr' placeholder='Repeat New Password' required>
             <input type='submit' name='add-user_submit' value='Submit'>
@@ -70,7 +70,7 @@ if(isset($config["debug"])){
 
             <?php
             if($_SESSION["user"] == "root"){
-                echo "<input type='text' name='delete-user_name' placeholder='Username'>";
+                echo "<input type='text' name='delete-user_name' value=\"".$_GET["name"]."\" placeholder='Username'>";
             }
             ?>
             <input type="submit" name="delete-user_submit" value="Delete">
