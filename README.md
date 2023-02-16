@@ -3,14 +3,17 @@ A drop-in Login Area written in PHP.
 
 Features:
 - [X] **Stores Password as hashes**
-- [X] each user can change their own password
-- [X] root user can change passwords of all users
-- [X] root user can add new users
-- [X] Users can delete their own account
-- [X] root user can delete every account
+- [X] Multiple Users
+  - [X] each user can change their own password
+  - [X] Users can delete their own account
+  - [X] root user can change passwords of all users
+  - [X] root user can add new users
+  - [X] root user can delete every account
+  - [X] Select which user can access which site
+  - [X] root user can access every site 
 
 Usage: 
-- restrict access to login-data.php. For example with `.htaccess` like this:
+- restrict access to login-data.php <sup>(thats where the password hasheds are stored)</sup> <br>For example with `.htaccess` like this:
 ```
 <Files "path/to/login-data.php">  
   Require all denied
