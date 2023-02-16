@@ -10,11 +10,15 @@ Features:
 - [X] root user can delete every account
 
 Usage: 
-- Pull Repo
-- restrict access to login-data.php in your `.htaccess`
+- restrict access to login-data.php. For example with `.htaccess` like this:
+```
+<Files "path/to/login-data.php">  
+  Require all denied
+</Files>
+```
 - Change config.php to your liking. Successful Login will redirect to `homepage`. 
 - Add `<?php require 'protect.php'; ?>` to the Sites you want to secure
-- Add the relative path of sites with the line above to `permissions.php` like this: 
+- To set permissions, add the relative path of sites with the line above to `permissions.php` like this: 
   - `"/relative/path/site.php" => array("user1", "user2")`. 
   - `exceptions` will be accessible for every logged-in user. 
   - The `root` user can access every protected site.
