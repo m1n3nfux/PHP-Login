@@ -1,13 +1,20 @@
 <?php
 require 'protect.php';
 require 'config.php';
+global $config;
+if(isset($config["debug"])){
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+}
+
 ?>
 
 <html>
     <head>
         <title>User Management</title>
         <link rel="stylesheet" href="php-login.css">
-        <link rel="icon" href="<?php global $config; echo $config["favicon"] ?>">
+        <link rel="icon" href="<?php echo $config["favicon"] ?>">
     </head>
 </html>
 
@@ -15,7 +22,6 @@ require 'config.php';
 <div class="center">
     <h1>
         <?php
-        global $config;
         echo $config["loginTitle"];
         ?>
     </h1>
