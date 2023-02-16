@@ -19,6 +19,7 @@ Usage:
   Require all denied
 </Files>
 ```
+- Set ownership of login-date.php the user of your Webserver (e.g. www-data) and give the user write access for that file
 - Change config.php to your liking. Successful Login will redirect to `homepage`. 
 - Add `<?php require 'protect.php'; ?>` to the Sites you want to secure
 - To set permissions, add the relative path of sites with the line above to `permissions.php` like this: 

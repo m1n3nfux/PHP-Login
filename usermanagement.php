@@ -39,7 +39,7 @@ if(isset($config["debug"])){
         }
     ?>
     <div>
-        <form method="post">
+        <form autocomplete='off' method="post">
             <h2>Change Password</h2>
             <?php
                 if($_SESSION["user"] == "root"){
@@ -54,7 +54,7 @@ if(isset($config["debug"])){
     </div>
     <?php
     if($_SESSION["user"] == "root"){
-        echo "<div><form method='post'>
+        echo "<div><form autocomplete='off' method='post'>
             <h2>Add User</h2>
             <input type='text' name='add-user_name' value=\"".$_GET["name"]."\" placeholder='Username' required>
             <input type='password' name='add-user_pw' placeholder='New Password' required>
@@ -65,7 +65,7 @@ if(isset($config["debug"])){
     ?>
 
     <div>
-        <form method="post">
+        <form autocomplete='off' method="post">
             <h2>Delete Account</h2>
 
             <?php
