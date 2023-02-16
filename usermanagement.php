@@ -1,13 +1,20 @@
 <?php
 require 'protect.php';
 require 'config.php';
+global $config;
+if(isset($config["debug"])){
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+}
+
 ?>
 
 <html>
     <head>
         <title>User Management</title>
         <link rel="stylesheet" href="php-login.css">
-        <link rel="icon" href="<?php global $config; echo $config["favicon"] ?>">
+        <link rel="icon" href="<?php echo $config["favicon"] ?>">
     </head>
 </html>
 
@@ -15,63 +22,67 @@ require 'config.php';
 <div class="center">
     <h1>
         <?php
-        global $config;
         echo $config["loginTitle"];
         ?>
     </h1>
     <?php
         if($_SESSION["user"] == "root") {
             echo "<div id='users'>
-                <h3>Users</h3>";
+                <h2>Users</h2>";
             $login_data = include('login-data.php');
             foreach ($login_data as $key => $value) {
-                echo "<p class='user'>" . $key . "</p>";
+                echo "<a class='user' href='usermanagement.php?name=".$key."'>" . $key . "</a>";
             }
             echo "</div>";
         } else {
             echo "<h3>Hello ".$_SESSION["user"]."</h3>";
         }
     ?>
-    <form method="post">
-        <h2>Change Password</h2>
-        <?php
-            if($_SESSION["user"] == "root"){
-                echo "<input type='text' name='update-user_name' placeholder='Username' required>";
-            }
-        ?>
-        <input type="password" name="update-user_cpw" placeholder="Current Password" required>
-        <input type="password" name="update-user_pw" placeholder="New Password" required>
-        <input type="password" name="update-user_pwr" placeholder="Repeat New Password" required>
-        <input type="submit" name="update-user_submit" value="Submit">
-    </form>
+    <div>
+        <form method="post">
+            <h2>Change Password</h2>
+            <?php
+                if($_SESSION["user"] == "root"){
+                    echo "<input type='text' name='update-user_name' value=\"".$_GET["name"]."\" placeholder='Username' required>";
+                }
+            ?>
+            <input type="password" name="update-user_cpw" placeholder="Current Password" required>
+            <input type="password" name="update-user_pw" placeholder="New Password" required>
+            <input type="password" name="update-user_pwr" placeholder="Repeat New Password" required>
+            <input type="submit" name="update-user_submit" value="Submit">
+        </form>
+    </div>
     <?php
     if($_SESSION["user"] == "root"){
-        echo "<form method='post'>
+        echo "<div><form method='post'>
             <h2>Add User</h2>
-            <input type='text' name='add-user_name' placeholder='Username' required>
+            <input type='text' name='add-user_name' value=\"".$_GET["name"]."\" placeholder='Username' required>
             <input type='password' name='add-user_pw' placeholder='New Password' required>
             <input type='password' name='add-user_pwr' placeholder='Repeat New Password' required>
             <input type='submit' name='add-user_submit' value='Submit'>
-        </form>";
+        </form></div>";
     }
     ?>
 
+    <div>
+        <form method="post">
+            <h2>Delete Account</h2>
 
-    <form method="post">
-        <h2>Delete Account</h2>
+            <?php
+            if($_SESSION["user"] == "root"){
+                echo "<input type='text' name='delete-user_name' value=\"".$_GET["name"]."\" placeholder='Username'>";
+            }
+            ?>
+            <input type="submit" name="delete-user_submit" value="Delete">
+        </form>
 
-        <?php
-        if($_SESSION["user"] == "root"){
-            echo "<input type='text' name='delete-user_name' placeholder='Username'>";
-        }
-        ?>
-        <input type="submit" name="delete-user_submit" value="Delete">
-    </form>
 
-    <form method="post">
-        <input type="submit" name="logout" value="Logout">
-    </form>
-
+    </div>
+    <div>
+        <form method="post">
+            <input type="submit" name="logout" value="Logout">
+        </form>
+    </div>
 </div>
 
 <?php

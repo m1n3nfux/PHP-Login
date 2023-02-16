@@ -35,3 +35,10 @@ Usage:
   - Profit!
   
 Feel free to create a better css file and create a pull request :)
+
+
+Disclaimer: This repository is provided as-is and without any kind of warranty. 
+The code contained herein may not have been thoroughly tested and may contain errors or security vulnerabilities. 
+Use of this code is at your own risk and the author is not responsible for any 
+damages or losses that may occur as a result of its use. The security implications of this code are unknown, 
+and it is your responsibility to ensure that it is used in a secure manner.
