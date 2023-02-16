@@ -1,0 +1,28 @@
+.center {
+    width: 300px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    width: fit-content;
+    margin: 20px auto;
+}
+
+form {
+    width: 100%;
+    margin: auto;
+}
+
+input {
+    width: 100%;
+    margin-bottom: 15px;
+    height: 40px;
+}
+
+input[type=text]{
+}
+input[type=password]{
+}
+input[type=submit]{
+}

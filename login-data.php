@@ -1,4 +1,5 @@
 <?php
 return [
-    "root" => "\$2y\$10\$9dZSu3cnQYtysAjcz1UTs.oQn1czBngJtfw85KzIJ9nbx0HGj9dlG",
+	"test" => "\$2y\$10\$o7PrGc2HTMznyuWpw.9LVucLDxoMiLOastOfr1UEdkiVMsOiKFYvS",
+	"root" => "\$2y\$10\$TrgGaEznC/MLRjGGKGpLjecKMnDbpeNBiB0rfTc3AdIIKaDulNJ/e",
 ];

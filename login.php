@@ -1,13 +1,12 @@
 <?php
 require "check.php";
 require __DIR__ . '/config.php';
-
-
 ?>
 
 <head>
-    <link rel="stylesheet" href="login-styles.css">
+    <link rel="stylesheet" href="php-login.css">
     <title><?php global $config; echo $config["loginTitle"] ?></title>
+    <link rel="icon" href="<?php global $config; echo $config["favicon"] ?>">
 </head>
 
 <body>
