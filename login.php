@@ -30,7 +30,7 @@ if($config["debug"]){
     </form>
     <?php
     if (isset($failed)) { ?>
-    <div id="badLogin">Invalid user or password.</div>
+        <div id="badLogin"><p>Invalid user or password.</p></div>
     <?php } ?>
 </div>
 </body>
